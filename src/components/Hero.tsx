@@ -33,26 +33,29 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
     <section id="top" aria-labelledby="hero-title" className="pt-[72px]">
       {/* Image grid */}
       <div className="flex gap-[clamp(10px,1.4vw,20px)] w-full h-[clamp(320px,70vh,940px)] md:h-[clamp(460px,80vh,940px)] p-[clamp(10px,1.4vw,20px)]">
-        {/* Image 1 */}
-        <div className="relative flex-1 h-full bg-[#e9ddca] overflow-hidden">
+        {/* Image 1 — cinemática */}
+        <div className={`relative flex-1 h-full bg-[#e9ddca] overflow-hidden cinema-img ${titleVisible ? "visible" : ""}`}>
           <img
             src="/images/models/model-1.webp"
             alt="Conjunto seamless MAMS — vista frontal"
             className="absolute top-[-9%] left-0 w-full h-[118%] object-cover object-[center_22%]"
           />
-          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)]">
+          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)] z-10">
             FIG. A — SEAMLESS
           </span>
         </div>
 
-        {/* Image 2 — hidden on mobile */}
-        <div className="relative flex-1 h-full bg-[#e9ddca] overflow-hidden hidden md:block">
+        {/* Image 2 — cinemática (hidden mobile) */}
+        <div
+          className={`relative flex-1 h-full bg-[#e9ddca] overflow-hidden hidden md:block cinema-img ${titleVisible ? "visible" : ""}`}
+          style={{ transitionDelay: "0.2s" }}
+        >
           <img
             src="/images/models/model-2.webp"
             alt="Conjunto seamless MAMS — vista lateral"
             className="absolute top-[-9%] left-0 w-full h-[118%] object-cover object-[center_18%]"
           />
-          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)]">
+          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)] z-10">
             FIG. B — SEAMLESS
           </span>
         </div>

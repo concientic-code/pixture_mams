@@ -39,8 +39,8 @@ export default function ProcessSection() {
           </p>
         </div>
 
-        {/* Image */}
-        <div className="relative w-full aspect-[4/5] bg-[#e9ddca] overflow-hidden">
+        {/* Image — cinemática */}
+        <div className={`relative w-full aspect-[4/5] bg-[#e9ddca] overflow-hidden cinema-img ${isVisible ? "visible" : ""}`}>
           <img
             src="/images/models/model-2.webp"
             alt="Proceso de diseño MAMS"
@@ -48,7 +48,7 @@ export default function ProcessSection() {
             decoding="async"
             className="absolute top-[-9%] left-0 w-full h-[118%] object-cover object-[center_16%]"
           />
-          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)]">
+          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)] z-10">
             FIG. 01 — SEAMLESS
           </span>
         </div>
