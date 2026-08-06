@@ -49,7 +49,7 @@ export default function PackageList() {
       ref={revealRef}
       aria-labelledby="package-title"
       className="flex items-center py-[clamp(64px,7vh,104px)] px-[clamp(20px,4vw,48px)]"
-      style={{ background: "var(--color-cream)" }}
+      style={{ background: "var(--color-sand)" }}
     >
       <div className="max-w-[1320px] mx-auto w-full grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-10 md:gap-[clamp(40px,6vw,96px)] items-center">
         {/* Text + List */}
