@@ -75,15 +75,15 @@ export default function StickyProcess() {
               entre procesos.
             </p>
 
-            {/* Stage list — hover to select */}
+            {/* Stage list — hover to select, con animación de entrada */}
             <ul className="list-none m-0 p-0 flex flex-col gap-0">
               {STAGES.map((stage, i) => (
                 <li
                   key={stage.num}
                   onMouseEnter={() => setActiveIndex(i)}
-                  className="flex items-center gap-4 py-3 transition-all cursor-pointer"
+                  className={`flex items-center gap-4 py-3 transition-all cursor-pointer reveal ${isVisible ? `visible stagger-${i + 1}` : ""}`}
                   style={{
-                    opacity: i === activeIndex ? 1 : 0.4,
+                    opacity: isVisible ? (i === activeIndex ? 1 : 0.4) : 0,
                     transitionDuration: "var(--duration-slow)",
                   }}
                 >
