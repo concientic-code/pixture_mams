@@ -49,7 +49,7 @@ export default function PackageList() {
       className="flex items-center py-[clamp(64px,7vh,104px)] px-[clamp(20px,4vw,48px)]"
       style={{ background: "var(--color-cream)" }}
     >
-      <div className={`max-w-[1320px] mx-auto w-full grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-10 md:gap-[clamp(40px,6vw,96px)] items-center reveal ${isVisible ? "visible" : ""}`}>
+      <div className="max-w-[1320px] mx-auto w-full grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-10 md:gap-[clamp(40px,6vw,96px)] items-center">
         {/* Text + List */}
         <div>
           <span className={`font-mono text-sm tracking-[0.1em] text-mams-coral mb-7 block reveal ${isVisible ? "visible" : ""}`}>
@@ -73,7 +73,7 @@ export default function PackageList() {
             {SERVICES.map((service, i) => (
               <li
                 key={service}
-                className={`flex items-baseline gap-6 py-[22px] border-t border-[rgba(29,29,27,0.14)] last:border-b last:border-b-[rgba(29,29,27,0.14)] reveal ${isVisible ? `visible stagger-${i + 1}` : ""}`}
+                className="flex items-baseline gap-6 py-[22px] border-t border-[rgba(29,29,27,0.14)] last:border-b last:border-b-[rgba(29,29,27,0.14)]"
               >
                 <span className="font-mono text-[13px] text-mams-coral w-[2ch]">
                   {String(i + 1).padStart(2, "0")}

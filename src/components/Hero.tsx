@@ -91,10 +91,10 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
           Aliado textil · Guarne, Colombia
         </p>
 
-        {/* Main heading — oculto hasta scroll */}
+        {/* Main heading — siempre visible */}
         <h1
           id="hero-title"
-          className={`reveal ${hasScrolled ? "visible stagger-1" : ""} text-[clamp(42px,7.2vw,112px)] leading-[0.94] tracking-[0.01em] text-mams-ink m-0 max-w-[16ch]`}
+          className="text-[clamp(42px,7.2vw,112px)] leading-[0.94] tracking-[0.01em] text-mams-ink m-0 max-w-[16ch]"
           style={{
             fontFamily: "var(--font-display)",
             textTransform: "uppercase",
@@ -104,8 +104,8 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
           Confeccionamos tus ideas
         </h1>
 
-        {/* Subtitle + CTA — ocultos hasta scroll */}
-        <div className={`reveal ${hasScrolled ? "visible stagger-2" : ""} flex items-end justify-between flex-wrap gap-6 mt-[clamp(28px,3.4vw,44px)]`}>
+        {/* Subtitle + CTA */}
+        <div className="flex items-end justify-between flex-wrap gap-6 mt-[clamp(28px,3.4vw,44px)]">
           <p
             className="text-[clamp(16px,1.3vw,19px)] leading-[1.6] text-[rgba(29,29,27,0.72)] m-0 max-w-[34ch]"
             style={{ fontFamily: "var(--font-body)" }}
@@ -114,9 +114,10 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
             control para tu marca — sin costuras entre procesos.
           </p>
 
+          {/* Explora el proceso — oculto hasta scroll */}
           <button
             onClick={onExplore}
-            className={`reveal ${hasScrolled ? "visible stagger-3" : ""} uppercase tracking-[0.16em] text-[13px] font-semibold text-mams-ink bg-transparent border-none border-b-2 border-b-mams-ink cursor-pointer pb-1.5 inline-flex items-center gap-3 hover:text-mams-coral hover:border-b-mams-coral transition-colors`}
+            className={`reveal ${hasScrolled ? "visible" : ""} uppercase tracking-[0.16em] text-[13px] font-semibold text-mams-ink bg-transparent border-none border-b-2 border-b-mams-ink cursor-pointer pb-1.5 inline-flex items-center gap-3 hover:text-mams-coral hover:border-b-mams-coral transition-colors`}
             style={{
               fontFamily: "var(--font-heading)",
               transitionDuration: "var(--duration-fast)",

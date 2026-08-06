@@ -62,7 +62,7 @@ export default function StickyProcess() {
             </span>
             <h2
               id="sticky-title"
-              className={`font-semibold uppercase text-[clamp(32px,4.6vw,68px)] leading-[0.98] tracking-[-0.015em] text-mams-ink m-0 mb-7 reveal ${isVisible ? "visible stagger-1" : ""}`}
+              className="font-semibold uppercase text-[clamp(32px,4.6vw,68px)] leading-[0.98] tracking-[-0.015em] text-mams-ink m-0 mb-7"
               style={{
                 fontFamily: "var(--font-heading)",
                 textWrap: "balance",
@@ -71,7 +71,7 @@ export default function StickyProcess() {
               De la fibra al producto terminado
             </h2>
             <p
-              className={`text-[clamp(16px,1.25vw,18px)] leading-[1.65] text-[rgba(29,29,27,0.72)] m-0 mb-8 max-w-[30ch] reveal ${isVisible ? "visible stagger-2" : ""}`}
+              className="text-[clamp(16px,1.25vw,18px)] leading-[1.65] text-[rgba(29,29,27,0.72)] m-0 mb-8 max-w-[30ch]"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Un solo aliado en cada etapa. Sin intermediarios, sin costuras

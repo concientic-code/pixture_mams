@@ -16,7 +16,7 @@ export default function CtaSection({ onGetStarted }: CtaSectionProps) {
       className="flex items-center py-[clamp(72px,9vh,128px)] px-[clamp(20px,4vw,48px)]"
       style={{ background: "var(--color-sand)" }}
     >
-      <div className={`max-w-[1320px] mx-auto w-full reveal ${isVisible ? "visible" : ""}`}>
+      <div className="max-w-[1320px] mx-auto w-full">
         <span className={`font-mono text-sm tracking-[0.1em] text-mams-coral mb-7 block reveal ${isVisible ? "visible" : ""}`}>
           [05]
         </span>
