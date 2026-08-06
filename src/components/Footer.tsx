@@ -92,7 +92,7 @@ export default function Footer() {
           className="flex flex-wrap justify-between gap-4 pt-6 text-[13px] text-[rgba(243,228,200,0.6)]"
           style={{ fontFamily: "var(--font-body)" }}
         >
-          <span>© 2026 MAMS Grupo Textil. Todos los derechos reservados.</span>
+          <span>© {new Date().getFullYear()} MAMS Grupo Textil. Todos los derechos reservados.</span>
           <span className="flex gap-6">
             <a href="#top" className="text-[rgba(243,228,200,0.85)] hover:text-mams-cream transition-colors">
               Privacy
