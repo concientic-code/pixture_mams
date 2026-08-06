@@ -59,7 +59,7 @@ export default function Results() {
 
         {/* Text */}
         <div>
-          <span className="font-mono text-sm tracking-[0.1em] text-mams-coral mb-7 block">
+          <span className={`font-mono text-sm tracking-[0.1em] text-mams-coral mb-7 block reveal ${isVisible ? "visible" : ""}`}>
             [03]
           </span>
           <h2

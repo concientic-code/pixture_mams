@@ -52,7 +52,7 @@ export default function PackageList() {
       <div className={`max-w-[1320px] mx-auto w-full grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-10 md:gap-[clamp(40px,6vw,96px)] items-center reveal ${isVisible ? "visible" : ""}`}>
         {/* Text + List */}
         <div>
-          <span className="font-mono text-sm tracking-[0.1em] text-mams-coral mb-7 block">
+          <span className={`font-mono text-sm tracking-[0.1em] text-mams-coral mb-7 block reveal ${isVisible ? "visible" : ""}`}>
             [04]
           </span>
           <h2

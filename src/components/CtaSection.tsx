@@ -17,7 +17,7 @@ export default function CtaSection({ onGetStarted }: CtaSectionProps) {
       style={{ background: "var(--color-sand)" }}
     >
       <div className={`max-w-[1320px] mx-auto w-full reveal ${isVisible ? "visible" : ""}`}>
-        <span className="font-mono text-sm tracking-[0.1em] text-mams-coral mb-7 block">
+        <span className={`font-mono text-sm tracking-[0.1em] text-mams-coral mb-7 block reveal ${isVisible ? "visible" : ""}`}>
           [05]
         </span>
         <h2

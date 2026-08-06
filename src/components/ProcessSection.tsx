@@ -44,12 +44,12 @@ export default function ProcessSection() {
       <div className={`max-w-[1320px] mx-auto w-full grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-10 md:gap-[clamp(40px,6vw,96px)] items-center reveal ${isVisible ? "visible" : ""}`}>
         {/* Text */}
         <div>
-          <span className="font-mono text-sm tracking-[0.1em] text-mams-coral mb-7 block">
+          <span className={`font-mono text-sm tracking-[0.1em] text-mams-coral mb-7 block reveal ${isVisible ? "visible" : ""}`}>
             [01]
           </span>
           <h2
             id="process-title"
-            className="font-semibold uppercase text-[clamp(34px,5vw,74px)] leading-[0.98] tracking-[-0.015em] text-mams-ink m-0 mb-7"
+            className={`font-semibold uppercase text-[clamp(34px,5vw,74px)] leading-[0.98] tracking-[-0.015em] text-mams-ink m-0 mb-7 reveal ${isVisible ? "visible stagger-1" : ""}`}
             style={{
               fontFamily: "var(--font-heading)",
               textWrap: "balance",
@@ -58,7 +58,7 @@ export default function ProcessSection() {
             Diseñamos contigo
           </h2>
           <p
-            className="text-[clamp(16px,1.25vw,18px)] leading-[1.65] text-[rgba(29,29,27,0.72)] m-0 max-w-[32ch]"
+            className={`text-[clamp(16px,1.25vw,18px)] leading-[1.65] text-[rgba(29,29,27,0.72)] m-0 max-w-[32ch] reveal ${isVisible ? "visible stagger-2" : ""}`}
             style={{ fontFamily: "var(--font-body)" }}
           >
             Desarrollo de producto, prototipado y marca privada. Tu idea llega a

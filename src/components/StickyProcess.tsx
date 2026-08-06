@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useReveal } from "@/hooks/useReveal";
 
 const STAGES = [
   { label: "ETAPA 01", title: "Tejido", bg: "#ded0b6", textColor: "#1d1d1b", labelColor: "rgba(29,29,27,0.5)" },
@@ -12,6 +13,7 @@ const STAGES = [
 export default function StickyProcess() {
   const sectionRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const { ref: revealRef, isVisible } = useReveal({ threshold: 0.05 });
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
@@ -54,13 +56,13 @@ export default function StickyProcess() {
       <div className="sticky top-0 h-screen flex items-center py-[clamp(60px,9vh,120px)] px-[clamp(16px,4vw,48px)]">
         <div className="max-w-[1320px] mx-auto w-full grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-8 md:gap-[clamp(40px,6vw,96px)] items-center">
           {/* Text side */}
-          <div>
-            <span className="font-mono text-sm tracking-[0.1em] text-mams-coral mb-7 block">
+          <div ref={revealRef}>
+            <span className={`font-mono text-sm tracking-[0.1em] text-mams-coral mb-7 block reveal ${isVisible ? "visible" : ""}`}>
               [02]
             </span>
             <h2
               id="sticky-title"
-              className="font-semibold uppercase text-[clamp(32px,4.6vw,68px)] leading-[0.98] tracking-[-0.015em] text-mams-ink m-0 mb-7"
+              className={`font-semibold uppercase text-[clamp(32px,4.6vw,68px)] leading-[0.98] tracking-[-0.015em] text-mams-ink m-0 mb-7 reveal ${isVisible ? "visible stagger-1" : ""}`}
               style={{
                 fontFamily: "var(--font-heading)",
                 textWrap: "balance",
@@ -69,7 +71,7 @@ export default function StickyProcess() {
               De la fibra al producto terminado
             </h2>
             <p
-              className="text-[clamp(16px,1.25vw,18px)] leading-[1.65] text-[rgba(29,29,27,0.72)] m-0 mb-8 max-w-[30ch]"
+              className={`text-[clamp(16px,1.25vw,18px)] leading-[1.65] text-[rgba(29,29,27,0.72)] m-0 mb-8 max-w-[30ch] reveal ${isVisible ? "visible stagger-2" : ""}`}
               style={{ fontFamily: "var(--font-body)" }}
             >
               Un solo aliado en cada etapa. Sin intermediarios, sin costuras
