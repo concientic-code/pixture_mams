@@ -85,16 +85,16 @@ export default function Preloader({ onComplete }: PreloaderProps) {
     >
       {/* Loading screen */}
       {phase === "loading" && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-[201]" style={{ background: "var(--color-blue)" }}>
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-[201]" style={{ background: "var(--color-cream)" }}>
           {/* Logo mark */}
           <img
-            src="/images/logos/logomark-cream.png"
+            src="/images/logos/logomark-blue.png"
             alt=""
             className="w-12 h-12 mb-8 opacity-60"
           />
           {/* Progress bar + percentage */}
           <div className="flex items-center gap-3">
-            <div className="w-[180px] h-[2px] bg-[rgba(243,228,200,0.2)]">
+            <div className="w-[180px] h-[2px] bg-[rgba(71,128,176,0.2)]">
               <div
                 className="h-full bg-mams-coral"
                 style={{
@@ -103,7 +103,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
                 }}
               />
             </div>
-            <span className="font-mono text-[12px] text-mams-cream opacity-70">
+            <span className="font-mono text-[12px] text-mams-blue opacity-70">
               {progress}%
             </span>
           </div>
@@ -116,21 +116,21 @@ export default function Preloader({ onComplete }: PreloaderProps) {
           <div
             className="absolute top-0 left-0 w-1/3 h-full z-[201]"
             style={{
-              background: "var(--color-blue)",
+              background: "var(--color-cream)",
               animation: "curtain-left 1s var(--ease-brand) forwards",
             }}
           />
           <div
             className="absolute top-0 left-1/3 w-1/3 h-full z-[201]"
             style={{
-              background: "var(--color-blue)",
+              background: "var(--color-cream)",
               animation: "curtain-center 1s var(--ease-brand) 0.15s forwards",
             }}
           />
           <div
             className="absolute top-0 right-0 w-1/3 h-full z-[201]"
             style={{
-              background: "var(--color-blue)",
+              background: "var(--color-cream)",
               animation: "curtain-right 1s var(--ease-brand) 0.3s forwards",
             }}
           />

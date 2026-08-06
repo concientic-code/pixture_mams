@@ -55,18 +55,15 @@ export default function Header({ onCtaClick }: HeaderProps) {
         />
       </a>
 
-      {/* CTA Button — cajón que cambia de color al scrollear */}
+      {/* CTA Button — color azul, sin caja */}
       <nav aria-label="Acciones principales">
         <button
           onClick={onCtaClick}
-          className="relative uppercase tracking-[0.16em] text-xs font-semibold cursor-pointer flex items-center gap-[10px] px-5 py-3 border transition-all"
+          className="relative uppercase tracking-[0.16em] text-xs font-semibold cursor-pointer flex items-center gap-[10px] px-0 py-2 border-none bg-transparent transition-colors"
           style={{
             fontFamily: "var(--font-heading)",
-            transitionDuration: "var(--duration-slow)",
-            transitionTimingFunction: "var(--ease-brand)",
-            background: scrolled ? "var(--color-ink)" : "transparent",
-            color: scrolled ? "var(--color-cream)" : "var(--color-ink)",
-            borderColor: scrolled ? "var(--color-ink)" : "var(--color-ink)",
+            transitionDuration: "var(--duration-fast)",
+            color: "var(--color-blue)",
           }}
         >
           Get started
