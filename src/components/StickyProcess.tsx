@@ -90,7 +90,7 @@ export default function StickyProcess() {
 
           {/* Visual stage carousel */}
           <div
-            className="relative w-full h-[clamp(240px,40vh,680px)] md:h-[clamp(360px,64vh,680px)] overflow-hidden"
+            className="relative w-full h-[clamp(240px,40vh,680px)] md:h-[clamp(360px,64vh,680px)] overflow-hidden border border-[rgba(29,29,27,0.08)]"
             style={{ background: "#ded0b6" }}
             aria-roledescription="carousel"
             aria-label="Etapas del proceso de manufactura"
