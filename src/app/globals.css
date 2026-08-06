@@ -101,6 +101,15 @@ a:hover {
   color: var(--color-coral);
 }
 
+/* Footer links mantienen su color propio */
+footer a {
+  color: inherit;
+}
+
+footer a:hover {
+  color: inherit;
+}
+
 ::selection {
   background: var(--color-coral);
   color: var(--color-cream);

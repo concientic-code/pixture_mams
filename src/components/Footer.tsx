@@ -38,13 +38,13 @@ export default function Footer() {
               >
                 Empresa
               </span>
-              <a href="#top" className="underline-weave text-mams-cream text-[15px]" style={{ fontFamily: "var(--font-body)" }}>
+              <a href="#top" className="underline-weave text-[rgba(243,228,200,0.9)] text-[15px]" style={{ fontFamily: "var(--font-body)" }}>
                 Proceso
               </a>
-              <a href="#top" className="underline-weave text-mams-cream text-[15px]" style={{ fontFamily: "var(--font-body)" }}>
+              <a href="#top" className="underline-weave text-[rgba(243,228,200,0.9)] text-[15px]" style={{ fontFamily: "var(--font-body)" }}>
                 Capacidades
               </a>
-              <a href="#top" className="underline-weave text-mams-cream text-[15px]" style={{ fontFamily: "var(--font-body)" }}>
+              <a href="#top" className="underline-weave text-[rgba(243,228,200,0.9)] text-[15px]" style={{ fontFamily: "var(--font-body)" }}>
                 Contacto
               </a>
             </nav>
@@ -59,7 +59,7 @@ export default function Footer() {
               </span>
               <a
                 href="#top"
-                className="underline-weave text-mams-cream text-[15px] flex items-center gap-2.5"
+                className="underline-weave text-[rgba(243,228,200,0.9)] text-[15px] flex items-center gap-2.5"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
@@ -71,7 +71,7 @@ export default function Footer() {
               </a>
               <a
                 href="#top"
-                className="underline-weave text-mams-cream text-[15px] flex items-center gap-2.5"
+                className="underline-weave text-[rgba(243,228,200,0.9)] text-[15px] flex items-center gap-2.5"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
