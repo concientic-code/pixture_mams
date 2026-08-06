@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/* ===========================
+   MAMS Design Tokens
+   Fuente de verdad: CSS custom properties
+   Tailwind las consume via @theme
+   =========================== */
+
+:root {
+  /* Base palette */
+  --color-blue: #4780b0;
+  --color-blue-deep: #3a698f;
+  --color-blue-tint: #6d9ac0;
+  --color-coral: #eb662e;
+  --color-coral-deep: #c94f1d;
+  --color-sand: #edd6b5;
+  --color-sand-deep: #dfc39a;
+  --color-cream: #f3e4c8;
+  --color-ink: #1d1d1b;
+
+  /* Semantic surfaces */
+  --surface-blue: var(--color-blue);
+  --surface-sand: var(--color-sand);
+  --surface-panel: var(--color-cream);
+
+  /* Semantic text */
+  --text-on-blue: var(--color-cream);
+  --text-on-sand: var(--color-blue);
+  --text-accent: var(--color-coral);
+
+  /* Font families (set by next/font via CSS variables) */
+  --font-display: "MAMS Display", "Artegra Sans", sans-serif;
+  --font-heading: "Artegra Sans", "Outfit", sans-serif;
+  --font-body: "Outfit", Arial, sans-serif;
+
+  /* Spacing */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 40px;
+  --space-5: 64px;
+  --space-6: 96px;
+
+  /* Motion */
+  --ease-brand: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 160ms;
+  --duration-slow: 420ms;
+
+  /* Misc */
+  --radius-soft: 6px;
+  --thread-width: 3px;
+}
+
+/* Tailwind theme extension — consumes CSS variables */
+@theme inline {
+  --color-mams-blue: var(--color-blue);
+  --color-mams-blue-deep: var(--color-blue-deep);
+  --color-mams-blue-tint: var(--color-blue-tint);
+  --color-mams-coral: var(--color-coral);
+  --color-mams-coral-deep: var(--color-coral-deep);
+  --color-mams-sand: var(--color-sand);
+  --color-mams-sand-deep: var(--color-sand-deep);
+  --color-mams-cream: var(--color-cream);
+  --color-mams-ink: var(--color-ink);
+
+  --font-display: var(--font-display);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+}
+
+/* ===========================
+   Base reset
+   =========================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--color-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-coral);
+}
+
+::selection {
+  background: var(--color-coral);
+  color: var(--color-cream);
+}
+
+/* Accesibilidad: respeta reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Accesibilidad: focus visible para navegación por teclado */
+:focus-visible {
+  outline: 3px solid var(--color-coral);
+  outline-offset: 3px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--color-coral);
+  outline-offset: 3px;
+}
