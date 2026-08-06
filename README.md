@@ -159,12 +159,7 @@ Vercel redeploya automáticamente en ~1 minuto.
 ```bash
 npm run dev
 # Acceder desde: http://<TU_IP_LOCAL>:3000
-```
 
-Requiere abrir el puerto en el firewall (ejecutar como admin):
-```powershell
-netsh advfirewall firewall add rule name="Next.js Dev" dir=in action=allow protocol=tcp localport=3000
-```
 
 ## Notas importantes
 
