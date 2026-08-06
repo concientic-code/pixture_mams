@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface HeroProps {
   onExplore?: () => void;
@@ -10,15 +10,23 @@ interface HeroProps {
 export default function Hero({ onExplore, onGetStarted }: HeroProps) {
   const img1Ref = useRef<HTMLImageElement>(null);
   const img2Ref = useRef<HTMLImageElement>(null);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
-    // Check reduced motion preference
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
-    if (prefersReduced) return;
+
+    if (prefersReduced) {
+      setHasScrolled(true);
+      return;
+    }
 
     const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setHasScrolled(true);
+      }
+
       const vh = window.innerHeight;
       const elements = [img1Ref.current, img2Ref.current];
 
@@ -75,34 +83,32 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
 
       {/* Content */}
       <div className="max-w-[1320px] mx-auto px-[clamp(20px,4vw,48px)] py-[clamp(24px,3vw,44px)] pb-[clamp(28px,3.5vw,48px)]">
-        {/* Tagline — aparece con delay */}
+        {/* Tagline — oculto hasta scroll */}
         <p
-          className="hero-fade uppercase tracking-[0.28em] text-xs text-mams-blue mb-[clamp(18px,2.4vw,30px)]"
-          style={{ fontFamily: "var(--font-heading)", animationDelay: "0.6s" }}
+          className={`reveal ${hasScrolled ? "visible" : ""} uppercase tracking-[0.28em] text-xs text-mams-blue mb-[clamp(18px,2.4vw,30px)]`}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           Aliado textil · Guarne, Colombia
         </p>
 
-        {/* Main heading — animated word reveal */}
+        {/* Main heading — oculto hasta scroll */}
         <h1
           id="hero-title"
-          className="text-[clamp(42px,7.2vw,112px)] leading-[0.94] tracking-[0.01em] text-mams-ink m-0 max-w-[16ch]"
+          className={`reveal ${hasScrolled ? "visible stagger-1" : ""} text-[clamp(42px,7.2vw,112px)] leading-[0.94] tracking-[0.01em] text-mams-ink m-0 max-w-[16ch]`}
           style={{
             fontFamily: "var(--font-display)",
             textTransform: "uppercase",
             textWrap: "balance",
           }}
         >
-          <span className="hero-word"><span>Confeccionamos</span></span>{" "}
-          <span className="hero-word"><span>tus</span></span>{" "}
-          <span className="hero-word"><span>ideas</span></span>
+          Confeccionamos tus ideas
         </h1>
 
-        {/* Subtitle + CTA */}
-        <div className="flex items-end justify-between flex-wrap gap-6 mt-[clamp(28px,3.4vw,44px)]">
+        {/* Subtitle + CTA — ocultos hasta scroll */}
+        <div className={`reveal ${hasScrolled ? "visible stagger-2" : ""} flex items-end justify-between flex-wrap gap-6 mt-[clamp(28px,3.4vw,44px)]`}>
           <p
-            className="hero-fade text-[clamp(16px,1.3vw,19px)] leading-[1.6] text-[rgba(29,29,27,0.72)] m-0 max-w-[34ch]"
-            style={{ fontFamily: "var(--font-body)", animationDelay: "0.8s" }}
+            className="text-[clamp(16px,1.3vw,19px)] leading-[1.6] text-[rgba(29,29,27,0.72)] m-0 max-w-[34ch]"
+            style={{ fontFamily: "var(--font-body)" }}
           >
             Del boceto al anaquel bajo un mismo techo. Velocidad, escala y
             control para tu marca — sin costuras entre procesos.
@@ -110,11 +116,10 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
 
           <button
             onClick={onExplore}
-            className="hero-fade uppercase tracking-[0.16em] text-[13px] font-semibold text-mams-ink bg-transparent border-none border-b-2 border-b-mams-ink cursor-pointer pb-1.5 inline-flex items-center gap-3 hover:text-mams-coral hover:border-b-mams-coral transition-colors"
+            className={`reveal ${hasScrolled ? "visible stagger-3" : ""} uppercase tracking-[0.16em] text-[13px] font-semibold text-mams-ink bg-transparent border-none border-b-2 border-b-mams-ink cursor-pointer pb-1.5 inline-flex items-center gap-3 hover:text-mams-coral hover:border-b-mams-coral transition-colors`}
             style={{
               fontFamily: "var(--font-heading)",
               transitionDuration: "var(--duration-fast)",
-              animationDelay: "1s",
             }}
           >
             Explora el proceso
