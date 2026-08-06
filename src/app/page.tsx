@@ -4,6 +4,7 @@ import { useRef, useCallback, useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProcessSection from "@/components/ProcessSection";
+import CinematicBand from "@/components/CinematicBand";
 import StickyProcess from "@/components/StickyProcess";
 import Results from "@/components/Results";
 import PackageList from "@/components/PackageList";
@@ -46,6 +47,8 @@ export default function Home() {
         <div ref={sec1Ref as React.RefObject<HTMLDivElement>}>
           <ProcessSection />
         </div>
+
+        <CinematicBand />
 
         <StickyProcess />
         <Results />
