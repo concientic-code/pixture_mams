@@ -24,10 +24,10 @@ URL de producción: https://pixture-mams.vercel.app/
 |------|--------|-------------|
 | 01 | Preloader | Carga progresiva con barra + cortina de revelado en 3 paneles |
 | 02 | Reveal de texto | Titulares con máscara (line-reveal) al entrar en viewport |
-| 04 | Parallax sutil | Profundidad con interpolación lerp, distintas velocidades por plano |
-| 07 | Microinteracciones | Botones con relleno ascendente, subrayados que se tejen, filas con shift |
-| 08 | Scroll suavizado | Inercia tipo Lenis que preserva position:sticky |
-| 09 | Banda cinemática | Full-bleed con Ken Burns lento + texto en contra-scroll |
+| 03 | Parallax sutil | Profundidad con interpolación lerp, distintas velocidades por plano |
+| 04 | Microinteracciones | Botones con relleno ascendente, subrayados que se tejen, filas con shift |
+| 05 | Scroll suavizado | Inercia tipo Lenis que preserva position:sticky |
+| 06 | Banda cinemática | Full-bleed con Ken Burns lento + texto en contra-scroll |
 
 ## Diseño responsive
 
