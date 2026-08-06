@@ -29,10 +29,7 @@ export default function CtaSection({ onGetStarted }: CtaSectionProps) {
           }}
         >
           <span className={`line-reveal ${isVisible ? "visible" : ""}`}>
-            <span>¿Listo para tejer</span>
-          </span>
-          <span className={`line-reveal stagger-2 ${isVisible ? "visible" : ""}`}>
-            <span>tu próxima colección?</span>
+            <span>¿Listo para tejer tu próxima colección?</span>
           </span>
         </h2>
         <button

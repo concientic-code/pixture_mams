@@ -69,10 +69,7 @@ export default function StickyProcess() {
               }}
             >
               <span className={`line-reveal ${isVisible ? "visible" : ""}`}>
-                <span>De la fibra al</span>
-              </span>
-              <span className={`line-reveal stagger-2 ${isVisible ? "visible" : ""}`}>
-                <span>producto terminado</span>
+                <span>De la fibra al producto terminado</span>
               </span>
             </h2>
             <p

@@ -140,11 +140,11 @@ a:focus-visible {
 
 .line-reveal {
   overflow: hidden;
-  display: block;
+  display: inline-block;
 }
 
 .line-reveal span {
-  display: block;
+  display: inline-block;
   transform: translateY(110%);
   transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }

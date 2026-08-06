@@ -27,10 +27,7 @@ export default function ProcessSection() {
             }}
           >
             <span className={`line-reveal ${isVisible ? "visible" : ""}`}>
-              <span>Diseñamos</span>
-            </span>
-            <span className={`line-reveal stagger-2 ${isVisible ? "visible" : ""}`}>
-              <span>contigo</span>
+              <span>Diseñamos contigo</span>
             </span>
           </h2>
           <p

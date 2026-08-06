@@ -79,10 +79,7 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
           }}
         >
           <span className={`line-reveal ${titleVisible ? "visible" : ""}`}>
-            <span>Confeccionamos</span>
-          </span>
-          <span className={`line-reveal stagger-2 ${titleVisible ? "visible" : ""}`}>
-            <span>tus ideas</span>
+            <span>Confeccionamos tus ideas</span>
           </span>
         </h1>
 
