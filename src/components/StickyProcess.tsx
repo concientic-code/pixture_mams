@@ -75,12 +75,13 @@ export default function StickyProcess() {
               entre procesos.
             </p>
 
-            {/* Stage list */}
+            {/* Stage list — clickable */}
             <ul className="list-none m-0 p-0 flex flex-col gap-0">
               {STAGES.map((stage, i) => (
                 <li
                   key={stage.num}
-                  className="flex items-center gap-4 py-3 border-b border-[rgba(29,29,27,0.12)] transition-all"
+                  onClick={() => setActiveIndex(i)}
+                  className="flex items-center gap-4 py-3 border-b border-[rgba(29,29,27,0.12)] transition-all cursor-pointer"
                   style={{
                     opacity: i === activeIndex ? 1 : 0.4,
                     transitionDuration: "var(--duration-slow)",
