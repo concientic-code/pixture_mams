@@ -1,11 +1,44 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 interface UseRevealOptions {
   threshold?: number;
   rootMargin?: string;
   once?: boolean;
+}
+
+// Shared observer pool — one observer per unique threshold+rootMargin combo
+const observerMap = new Map<string, IntersectionObserver>();
+const callbacks = new Map<Element, (isVisible: boolean) => void>();
+
+function getObserver(threshold: number, rootMargin: string, once: boolean) {
+  const key = `${threshold}_${rootMargin}`;
+
+  if (!observerMap.has(key)) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const cb = callbacks.get(entry.target);
+          if (!cb) continue;
+
+          if (entry.isIntersecting) {
+            cb(true);
+            if (once) {
+              observer.unobserve(entry.target);
+              callbacks.delete(entry.target);
+            }
+          } else if (!once) {
+            cb(false);
+          }
+        }
+      },
+      { threshold, rootMargin }
+    );
+    observerMap.set(key, observer);
+  }
+
+  return observerMap.get(key)!;
 }
 
 export function useReveal({
@@ -15,6 +48,10 @@ export function useReveal({
 }: UseRevealOptions = {}) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+
+  const handleVisibility = useCallback((visible: boolean) => {
+    setIsVisible(visible);
+  }, []);
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
@@ -29,21 +66,15 @@ export function useReveal({
     const el = ref.current;
     if (!el) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          if (once) observer.unobserve(el);
-        } else if (!once) {
-          setIsVisible(false);
-        }
-      },
-      { threshold, rootMargin }
-    );
-
+    const observer = getObserver(threshold, rootMargin, once);
+    callbacks.set(el, handleVisibility);
     observer.observe(el);
-    return () => observer.disconnect();
-  }, [threshold, rootMargin, once]);
+
+    return () => {
+      observer.unobserve(el);
+      callbacks.delete(el);
+    };
+  }, [threshold, rootMargin, once, handleVisibility]);
 
   return { ref, isVisible };
 }
