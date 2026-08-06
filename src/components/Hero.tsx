@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useReveal } from "@/hooks/useReveal";
-import { useParallax } from "@/hooks/useParallax";
 
 interface HeroProps {
   onExplore?: () => void;
@@ -12,8 +11,6 @@ interface HeroProps {
 export default function Hero({ onExplore, onGetStarted }: HeroProps) {
   const [hasScrolled, setHasScrolled] = useState(false);
   const { ref: titleRef, isVisible: titleVisible } = useReveal({ threshold: 0.1 });
-  const parallax1 = useParallax({ speed: 0.06 });
-  const parallax2 = useParallax({ speed: 0.1 });
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
@@ -36,33 +33,26 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
     <section id="top" aria-labelledby="hero-title" className="pt-[72px]">
       {/* Image grid */}
       <div className="flex gap-[clamp(10px,1.4vw,20px)] w-full h-[clamp(320px,70vh,940px)] md:h-[clamp(460px,80vh,940px)] p-[clamp(10px,1.4vw,20px)]">
-        {/* Image 1 — cinemática + parallax */}
-        <div
-          ref={parallax1}
-          className={`relative flex-1 h-full overflow-hidden cinema-img ${titleVisible ? "visible" : ""}`}
-        >
+        {/* Image 1 */}
+        <div className="relative flex-1 h-full bg-[#e9ddca] overflow-hidden">
           <img
             src="/images/models/model-1.webp"
             alt="Conjunto seamless MAMS — vista frontal"
-            className="absolute inset-0 w-full h-full object-cover object-[center_22%]"
+            className="absolute top-[-9%] left-0 w-full h-[118%] object-cover object-[center_22%]"
           />
-          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)] z-10">
+          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)]">
             FIG. A — SEAMLESS
           </span>
         </div>
 
-        {/* Image 2 — cinemática + parallax (hidden mobile) */}
-        <div
-          ref={parallax2}
-          className={`relative flex-1 h-full overflow-hidden hidden md:block cinema-img ${titleVisible ? "visible" : ""}`}
-          style={{ transitionDelay: "0.2s" }}
-        >
+        {/* Image 2 — hidden on mobile */}
+        <div className="relative flex-1 h-full bg-[#e9ddca] overflow-hidden hidden md:block">
           <img
             src="/images/models/model-2.webp"
             alt="Conjunto seamless MAMS — vista lateral"
-            className="absolute inset-0 w-full h-full object-cover object-[center_18%]"
+            className="absolute top-[-9%] left-0 w-full h-[118%] object-cover object-[center_18%]"
           />
-          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)] z-10">
+          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)]">
             FIG. B — SEAMLESS
           </span>
         </div>

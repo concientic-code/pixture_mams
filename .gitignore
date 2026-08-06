@@ -28,3 +28,6 @@ next-env.d.ts
 
 # images originales pesadas (mantener solo webp)
 public/images/models/*.png
+
+AGENTS.md
+CLAUDE.md

@@ -1,11 +1,9 @@
 "use client";
 
 import { useReveal } from "@/hooks/useReveal";
-import { useParallax } from "@/hooks/useParallax";
 
 export default function ProcessSection() {
   const { ref: revealRef, isVisible } = useReveal();
-  const parallaxImg = useParallax({ speed: 0.05 });
 
   return (
     <section
@@ -44,19 +42,16 @@ export default function ProcessSection() {
           </p>
         </div>
 
-        {/* Image — cinemática + parallax */}
-        <div
-          ref={parallaxImg}
-          className={`relative w-full aspect-[4/5] overflow-hidden cinema-img ${isVisible ? "visible" : ""}`}
-        >
+        {/* Image */}
+        <div className="relative w-full aspect-[4/5] bg-[#e9ddca] overflow-hidden">
           <img
             src="/images/models/model-2.webp"
             alt="Proceso de diseño MAMS"
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 w-full h-full object-cover object-[center_16%]"
+            className="absolute top-[-9%] left-0 w-full h-[118%] object-cover object-[center_16%]"
           />
-          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)] z-10">
+          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)]">
             FIG. 01 — SEAMLESS
           </span>
         </div>

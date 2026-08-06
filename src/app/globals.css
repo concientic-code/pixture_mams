@@ -120,18 +120,6 @@ a:hover {
   .line-reveal span {
     transform: none;
   }
-
-  .cinema-img {
-    clip-path: inset(0 0 0 0);
-  }
-
-  .cinema-img img {
-    transform: scale(1);
-  }
-
-  .parallax-layer {
-    transform: none !important;
-  }
 }
 
 /* Accesibilidad: focus visible para navegación por teclado */
@@ -172,36 +160,12 @@ a:focus-visible {
 .line-reveal.stagger-5 span { transition-delay: 0.33s; }
 
 /* ===========================
-   CAPA 03: Imágenes cinemáticas — máscara abre de abajo + escala
+   CAPA 03: (desactivada)
    =========================== */
-
-.cinema-img {
-  overflow: hidden;
-  clip-path: inset(100% 0 0 0);
-  transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.cinema-img.visible {
-  clip-path: inset(0 0 0 0);
-}
-
-.cinema-img img {
-  transform: scale(1.16);
-  transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.cinema-img.visible img {
-  transform: scale(1);
-}
 
 /* ===========================
-   CAPA 04: Parallax suave (se aplica via JS con interpolación)
+   CAPA 04: (desactivada)
    =========================== */
-
-.parallax-layer {
-  will-change: transform;
-  transition: transform 0.1s linear;
-}
 
 /* ===========================
    Reveal animations (scroll-triggered)
