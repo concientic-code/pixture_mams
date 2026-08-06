@@ -59,10 +59,9 @@ export default function Header({ onCtaClick }: HeaderProps) {
       <nav aria-label="Acciones principales">
         <button
           onClick={onCtaClick}
-          className="relative uppercase tracking-[0.16em] text-xs font-semibold cursor-pointer flex items-center gap-[10px] px-0 py-2 border-none bg-transparent transition-colors"
+          className="relative underline-weave uppercase tracking-[0.16em] text-xs font-semibold cursor-pointer flex items-center gap-[10px] px-0 py-2 border-none bg-transparent"
           style={{
             fontFamily: "var(--font-heading)",
-            transitionDuration: "var(--duration-fast)",
             color: "var(--color-blue)",
           }}
         >

@@ -35,10 +35,9 @@ export default function CtaSection({ onGetStarted }: CtaSectionProps) {
         <button
           onClick={onGetStarted}
           aria-label="Contactar a MAMS para comenzar tu proyecto"
-          className="uppercase tracking-[0.16em] text-sm font-semibold text-mams-cream bg-mams-blue border-none cursor-pointer px-10 py-5 hover:bg-mams-blue-deep transition-colors"
+          className="btn-fill uppercase tracking-[0.16em] text-sm font-semibold text-mams-cream bg-mams-blue border-none cursor-pointer px-10 py-5"
           style={{
             fontFamily: "var(--font-heading)",
-            transitionDuration: "var(--duration-fast)",
           }}
         >
           Get started

@@ -99,10 +99,9 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
           {/* Explora el proceso — oculto hasta scroll */}
           <button
             onClick={onExplore}
-            className={`reveal ${hasScrolled ? "visible" : ""} uppercase tracking-[0.16em] text-[13px] font-semibold text-mams-ink bg-transparent border-none border-b-2 border-b-mams-ink cursor-pointer pb-1.5 inline-flex items-center gap-3 hover:text-mams-coral hover:border-b-mams-coral transition-colors`}
+            className={`reveal ${hasScrolled ? "visible" : ""} underline-weave uppercase tracking-[0.16em] text-[13px] font-semibold text-mams-ink bg-transparent border-none cursor-pointer pb-1.5 inline-flex items-center gap-3`}
             style={{
               fontFamily: "var(--font-heading)",
-              transitionDuration: "var(--duration-fast)",
             }}
           >
             Explora el proceso
