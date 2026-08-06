@@ -116,6 +116,22 @@ a:hover {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
+  .line-reveal span {
+    transform: none;
+  }
+
+  .cinema-img {
+    clip-path: inset(0 0 0 0);
+  }
+
+  .cinema-img img {
+    transform: scale(1);
+  }
+
+  .parallax-layer {
+    transform: none !important;
+  }
 }
 
 /* Accesibilidad: focus visible para navegación por teclado */
@@ -128,6 +144,63 @@ button:focus-visible,
 a:focus-visible {
   outline: 3px solid var(--color-coral);
   outline-offset: 3px;
+}
+
+/* ===========================
+   CAPA 02: Reveal de texto por línea con máscara
+   =========================== */
+
+.line-reveal {
+  overflow: hidden;
+  display: block;
+}
+
+.line-reveal span {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.line-reveal.visible span {
+  transform: translateY(0);
+}
+
+.line-reveal.stagger-1 span { transition-delay: 0.05s; }
+.line-reveal.stagger-2 span { transition-delay: 0.12s; }
+.line-reveal.stagger-3 span { transition-delay: 0.19s; }
+.line-reveal.stagger-4 span { transition-delay: 0.26s; }
+.line-reveal.stagger-5 span { transition-delay: 0.33s; }
+
+/* ===========================
+   CAPA 03: Imágenes cinemáticas — máscara abre de abajo + escala
+   =========================== */
+
+.cinema-img {
+  overflow: hidden;
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cinema-img.visible {
+  clip-path: inset(0 0 0 0);
+}
+
+.cinema-img img {
+  transform: scale(1.16);
+  transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cinema-img.visible img {
+  transform: scale(1);
+}
+
+/* ===========================
+   CAPA 04: Parallax suave (se aplica via JS con interpolación)
+   =========================== */
+
+.parallax-layer {
+  will-change: transform;
+  transition: transform 0.1s linear;
 }
 
 /* ===========================

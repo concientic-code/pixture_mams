@@ -68,7 +68,12 @@ export default function StickyProcess() {
                 textWrap: "balance",
               }}
             >
-              De la fibra al producto terminado
+              <span className={`line-reveal ${isVisible ? "visible" : ""}`}>
+                <span>De la fibra al</span>
+              </span>
+              <span className={`line-reveal stagger-2 ${isVisible ? "visible" : ""}`}>
+                <span>producto terminado</span>
+              </span>
             </h2>
             <p
               className="text-[clamp(16px,1.25vw,18px)] leading-[1.65] text-[rgba(29,29,27,0.72)] m-0 mb-8 max-w-[30ch]"

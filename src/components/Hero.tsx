@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { useReveal } from "@/hooks/useReveal";
+import { useParallax } from "@/hooks/useParallax";
 
 interface HeroProps {
   onExplore?: () => void;
@@ -8,81 +10,66 @@ interface HeroProps {
 }
 
 export default function Hero({ onExplore, onGetStarted }: HeroProps) {
-  const img1Ref = useRef<HTMLImageElement>(null);
-  const img2Ref = useRef<HTMLImageElement>(null);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const { ref: titleRef, isVisible: titleVisible } = useReveal({ threshold: 0.1 });
+  const parallax1 = useParallax({ speed: 0.06 });
+  const parallax2 = useParallax({ speed: 0.1 });
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
-
     if (prefersReduced) {
       setHasScrolled(true);
       return;
     }
 
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setHasScrolled(true);
-      }
-
-      const vh = window.innerHeight;
-      const elements = [img1Ref.current, img2Ref.current];
-
-      for (const el of elements) {
-        if (!el) continue;
-        const rect = el.getBoundingClientRect();
-        if (rect.bottom < -240 || rect.top > vh + 240) continue;
-        const speed = 0.14;
-        const shift = -((rect.top + rect.height / 2 - vh / 2) * speed);
-        el.style.transform = `translate3d(0, ${shift.toFixed(1)}px, 0)`;
-      }
+      if (window.scrollY > 10) setHasScrolled(true);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
-    requestAnimationFrame(handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <section id="top" aria-labelledby="hero-title" className="pt-[72px]">
       {/* Image grid */}
       <div className="flex gap-[clamp(10px,1.4vw,20px)] w-full h-[clamp(320px,70vh,940px)] md:h-[clamp(460px,80vh,940px)] p-[clamp(10px,1.4vw,20px)]">
-        {/* Image 1 */}
-        <div className="relative flex-1 h-full bg-[#e9ddca] overflow-hidden">
+        {/* Image 1 — cinemática + parallax */}
+        <div
+          ref={parallax1}
+          className={`relative flex-1 h-full overflow-hidden cinema-img ${titleVisible ? "visible" : ""}`}
+        >
           <img
-            ref={img1Ref}
             src="/images/models/model-1.webp"
             alt="Conjunto seamless MAMS — vista frontal"
-            className="absolute top-[-9%] left-0 w-full h-[118%] object-cover object-[center_22%] will-change-transform"
+            className="absolute inset-0 w-full h-full object-cover object-[center_22%]"
           />
-          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)]">
+          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)] z-10">
             FIG. A — SEAMLESS
           </span>
         </div>
 
-        {/* Image 2 — hidden on mobile */}
-        <div className="relative flex-1 h-full bg-[#e9ddca] overflow-hidden hidden md:block">
+        {/* Image 2 — cinemática + parallax (hidden mobile) */}
+        <div
+          ref={parallax2}
+          className={`relative flex-1 h-full overflow-hidden hidden md:block cinema-img ${titleVisible ? "visible" : ""}`}
+          style={{ transitionDelay: "0.2s" }}
+        >
           <img
-            ref={img2Ref}
             src="/images/models/model-2.webp"
             alt="Conjunto seamless MAMS — vista lateral"
-            className="absolute top-[-9%] left-0 w-full h-[118%] object-cover object-[center_18%] will-change-transform"
+            className="absolute inset-0 w-full h-full object-cover object-[center_18%]"
           />
-          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)]">
+          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)] z-10">
             FIG. B — SEAMLESS
           </span>
         </div>
       </div>
 
       {/* Content */}
-      <div className="max-w-[1320px] mx-auto px-[clamp(20px,4vw,48px)] py-[clamp(24px,3vw,44px)] pb-[clamp(28px,3.5vw,48px)]">
+      <div ref={titleRef} className="max-w-[1320px] mx-auto px-[clamp(20px,4vw,48px)] py-[clamp(24px,3vw,44px)] pb-[clamp(28px,3.5vw,48px)]">
         {/* Tagline — oculto hasta scroll */}
         <p
           className={`reveal ${hasScrolled ? "visible" : ""} uppercase tracking-[0.28em] text-xs text-mams-blue mb-[clamp(18px,2.4vw,30px)]`}
@@ -91,7 +78,7 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
           Aliado textil · Guarne, Colombia
         </p>
 
-        {/* Main heading — siempre visible */}
+        {/* Main heading — reveal por línea con máscara */}
         <h1
           id="hero-title"
           className="text-[clamp(42px,7.2vw,112px)] leading-[0.94] tracking-[0.01em] text-mams-ink m-0 max-w-[16ch]"
@@ -101,7 +88,12 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
             textWrap: "balance",
           }}
         >
-          Confeccionamos tus ideas
+          <span className={`line-reveal ${titleVisible ? "visible" : ""}`}>
+            <span>Confeccionamos</span>
+          </span>
+          <span className={`line-reveal stagger-2 ${titleVisible ? "visible" : ""}`}>
+            <span>tus ideas</span>
+          </span>
         </h1>
 
         {/* Subtitle + CTA */}

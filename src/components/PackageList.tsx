@@ -60,7 +60,9 @@ export default function PackageList() {
             className="font-semibold uppercase text-[clamp(34px,5vw,74px)] leading-[0.98] tracking-[-0.015em] text-mams-ink m-0 mb-5"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Paquete completo
+            <span className={`line-reveal ${isVisible ? "visible" : ""}`}>
+              <span>Paquete completo</span>
+            </span>
           </h2>
           <p
             className="text-[clamp(16px,1.25vw,18px)] leading-[1.65] text-[rgba(29,29,27,0.72)] m-0 mb-10 max-w-[34ch]"
