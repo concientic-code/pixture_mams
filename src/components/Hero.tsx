@@ -71,7 +71,7 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
           Aliado textil · Guarne, Colombia
         </p>
 
-        {/* Main heading — reveal por línea con máscara */}
+        {/* Main heading */}
         <h1
           id="hero-title"
           className="text-[clamp(42px,7.2vw,112px)] leading-[0.94] tracking-[0.01em] text-mams-ink m-0 max-w-[16ch]"
@@ -81,9 +81,7 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
             textWrap: "balance",
           }}
         >
-          <span className={`line-reveal ${titleVisible ? "visible" : ""}`}>
-            <span>Confeccionamos tus ideas</span>
-          </span>
+          Confeccionamos tus ideas
         </h1>
 
         {/* Subtitle + CTA */}
