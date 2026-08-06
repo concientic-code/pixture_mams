@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import JsonLd from "@/components/JsonLd";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 const mamsDisplay = localFont({
@@ -90,6 +91,7 @@ export default function RootLayout({
       className={`${mamsDisplay.variable} ${artegraSans.variable} ${outfit.variable}`}
     >
       <body>
+        <SmoothScroll />
         <JsonLd />
         <a
           href="#main-content"
