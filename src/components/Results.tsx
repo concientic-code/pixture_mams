@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useReveal } from "@/hooks/useReveal";
 
 export default function Results() {
   const imgRef = useRef<HTMLImageElement>(null);
+  const { ref: revealRef, isVisible } = useReveal();
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
@@ -34,11 +36,12 @@ export default function Results() {
 
   return (
     <section
+      ref={revealRef}
       aria-labelledby="results-title"
       className="flex items-center py-[clamp(64px,7vh,104px)] px-[clamp(20px,4vw,48px)]"
       style={{ background: "var(--color-cream)" }}
     >
-      <div className="max-w-[1320px] mx-auto w-full grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-[clamp(40px,6vw,96px)] items-center">
+      <div className={`max-w-[1320px] mx-auto w-full grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-[clamp(40px,6vw,96px)] items-center reveal ${isVisible ? "visible" : ""}`}>
         {/* Image */}
         <div className="relative w-full aspect-[4/5] bg-[#e9ddca] overflow-hidden order-1 md:order-none">
           <img
@@ -64,13 +67,13 @@ export default function Results() {
             className="font-semibold uppercase text-[clamp(30px,4.4vw,64px)] leading-[1.05] tracking-[-0.015em] text-mams-ink"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            <span className="block reveal visible stagger-1">
+            <span className={`block reveal ${isVisible ? "visible stagger-1" : ""}`}>
               Más rápido<span className="text-mams-coral">.</span>
             </span>
-            <span className="block reveal visible stagger-2">
+            <span className={`block reveal ${isVisible ? "visible stagger-2" : ""}`}>
               A mayor escala<span className="text-mams-coral">.</span>
             </span>
-            <span className="block reveal visible stagger-3">
+            <span className={`block reveal ${isVisible ? "visible stagger-3" : ""}`}>
               Con más control<span className="text-mams-coral">.</span>
             </span>
           </h2>

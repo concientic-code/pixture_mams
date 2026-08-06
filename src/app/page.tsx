@@ -11,7 +11,6 @@ import SocialProof from "@/components/SocialProof";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
-import RevealSection from "@/components/RevealSection";
 
 export default function Home() {
   const ctaRef = useRef<HTMLElement>(null);
@@ -33,42 +32,21 @@ export default function Home() {
           onGetStarted={() => scrollTo(ctaRef)}
         />
 
-        {/* 01 — Diseñamos contigo */}
         <div ref={sec1Ref as React.RefObject<HTMLDivElement>}>
-          <RevealSection>
-            <ProcessSection />
-          </RevealSection>
+          <ProcessSection />
         </div>
 
-        {/* 02 — Sticky scroll */}
         <StickyProcess />
+        <Results />
+        <PackageList />
+        <SocialProof />
 
-        {/* 03 — Resultados */}
-        <RevealSection>
-          <Results />
-        </RevealSection>
-
-        {/* 04 — Paquete completo */}
-        <RevealSection>
-          <PackageList />
-        </RevealSection>
-
-        {/* Social proof */}
-        <RevealSection direction="scale">
-          <SocialProof />
-        </RevealSection>
-
-        {/* 05 — CTA */}
         <div ref={ctaRef as React.RefObject<HTMLDivElement>}>
-          <RevealSection>
-            <CtaSection onGetStarted={() => scrollTo(ctaRef)} />
-          </RevealSection>
+          <CtaSection onGetStarted={() => scrollTo(ctaRef)} />
         </div>
       </main>
 
       <Footer />
-
-      {/* Floating progress widget */}
       <ScrollProgress onCtaClick={() => scrollTo(ctaRef)} />
     </div>
   );

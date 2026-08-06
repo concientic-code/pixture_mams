@@ -1,15 +1,22 @@
+"use client";
+
+import { useReveal } from "@/hooks/useReveal";
+
 interface CtaSectionProps {
   onGetStarted?: () => void;
 }
 
 export default function CtaSection({ onGetStarted }: CtaSectionProps) {
+  const { ref, isVisible } = useReveal();
+
   return (
     <section
+      ref={ref}
       aria-labelledby="cta-title"
       className="flex items-center py-[clamp(72px,9vh,128px)] px-[clamp(20px,4vw,48px)]"
       style={{ background: "var(--color-sand)" }}
     >
-      <div className="max-w-[1320px] mx-auto w-full">
+      <div className={`max-w-[1320px] mx-auto w-full reveal ${isVisible ? "visible" : ""}`}>
         <span className="font-mono text-sm tracking-[0.1em] text-mams-coral mb-7 block">
           [05]
         </span>
