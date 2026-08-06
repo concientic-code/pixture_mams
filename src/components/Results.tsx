@@ -13,8 +13,8 @@ export default function Results() {
       style={{ background: "var(--color-cream)" }}
     >
       <div className="max-w-[1320px] mx-auto w-full grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-[clamp(40px,6vw,96px)] items-center">
-        {/* Image — cinemática */}
-        <div className={`relative w-full aspect-[4/5] bg-[#e9ddca] overflow-hidden order-1 md:order-none cinema-img ${isVisible ? "visible" : ""}`}>
+        {/* Image */}
+        <div className="relative w-full aspect-[4/5] bg-[#e9ddca] overflow-hidden order-1 md:order-none">
           <img
             src="/images/models/model-1.webp"
             alt="Resultados MAMS — producto terminado"
@@ -22,7 +22,7 @@ export default function Results() {
             decoding="async"
             className="absolute top-[-9%] left-0 w-full h-[118%] object-cover object-[center_24%]"
           />
-          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)] z-10">
+          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)]">
             FIG. 03 — SEAMLESS
           </span>
         </div>
