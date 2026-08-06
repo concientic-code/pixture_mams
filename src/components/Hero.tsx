@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useReveal } from "@/hooks/useReveal";
+import { useParallax } from "@/hooks/useParallax";
 
 interface HeroProps {
   onExplore?: () => void;
@@ -11,6 +12,8 @@ interface HeroProps {
 export default function Hero({ onExplore, onGetStarted }: HeroProps) {
   const [hasScrolled, setHasScrolled] = useState(false);
   const { ref: titleRef, isVisible: titleVisible } = useReveal({ threshold: 0.1 });
+  const parallax1 = useParallax({ speed: 0.04 });
+  const parallax2 = useParallax({ speed: 0.07 });
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
@@ -33,8 +36,8 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
     <section id="top" aria-labelledby="hero-title" className="pt-[72px]">
       {/* Image grid */}
       <div className="flex gap-[clamp(10px,1.4vw,20px)] w-full h-[clamp(320px,70vh,940px)] md:h-[clamp(460px,80vh,940px)] p-[clamp(10px,1.4vw,20px)]">
-        {/* Image 1 */}
-        <div className="relative flex-1 h-full bg-[#e9ddca] overflow-hidden">
+        {/* Image 1 — parallax lento */}
+        <div ref={parallax1} className="relative flex-1 h-full bg-[#e9ddca] overflow-hidden">
           <img
             src="/images/models/model-1.webp"
             alt="Conjunto seamless MAMS — vista frontal"
@@ -45,8 +48,8 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
           </span>
         </div>
 
-        {/* Image 2 — hidden on mobile */}
-        <div className="relative flex-1 h-full bg-[#e9ddca] overflow-hidden hidden md:block">
+        {/* Image 2 — parallax rápido (hidden mobile) */}
+        <div ref={parallax2} className="relative flex-1 h-full bg-[#e9ddca] overflow-hidden hidden md:block">
           <img
             src="/images/models/model-2.webp"
             alt="Conjunto seamless MAMS — vista lateral"

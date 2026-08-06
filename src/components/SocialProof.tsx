@@ -1,5 +1,7 @@
 "use client";
 
+import { useParallax } from "@/hooks/useParallax";
+
 const BRANDS = [
   { name: "Nortia", style: "tracking-[0.12em] text-[clamp(16px,1.7vw,22px)]" },
   { name: "Verde&Co", style: "tracking-[0.02em] text-[clamp(16px,1.7vw,22px)]" },
@@ -10,11 +12,13 @@ const BRANDS = [
 ];
 
 export default function SocialProof() {
+  const parallaxBand = useParallax({ speed: 0.03 });
   // Duplicamos las marcas para crear el loop infinito
   const allBrands = [...BRANDS, ...BRANDS];
 
   return (
     <section
+      ref={parallaxBand}
       aria-label="Marcas que confían en nosotros"
       className="py-[clamp(64px,8vh,110px)] border-t border-[rgba(29,29,27,0.1)] overflow-hidden"
       style={{ background: "var(--color-cream)" }}

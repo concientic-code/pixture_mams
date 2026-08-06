@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
+import { useParallax } from "@/hooks/useParallax";
 
 const SERVICES = [
   "Diseño y desarrollo",
@@ -14,6 +15,7 @@ const SERVICES = [
 export default function PackageList() {
   const imgRef = useRef<HTMLImageElement>(null);
   const { ref: revealRef, isVisible } = useReveal();
+  const parallaxImg = useParallax({ speed: 0.05 });
 
   useEffect(() => {
     const prefersReduced = window.matchMedia(
@@ -91,8 +93,8 @@ export default function PackageList() {
           </ol>
         </div>
 
-        {/* Image */}
-        <div className="relative w-full aspect-[4/5] bg-[#e9ddca] overflow-hidden">
+        {/* Image — parallax */}
+        <div ref={parallaxImg} className="relative w-full aspect-[4/5] bg-[#e9ddca] overflow-hidden">
           <img
             ref={imgRef}
             src="/images/models/model-2.webp"

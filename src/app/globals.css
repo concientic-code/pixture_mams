@@ -164,8 +164,15 @@ a:focus-visible {
    =========================== */
 
 /* ===========================
-   CAPA 04: (desactivada)
+   CAPA 04: Parallax sutil con interpolación lerp
+   Aplicado via JS (useParallax hook)
    =========================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-layer {
+    transform: none !important;
+  }
+}
 
 /* ===========================
    Reveal animations (scroll-triggered)

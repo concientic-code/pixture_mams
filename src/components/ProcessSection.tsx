@@ -1,9 +1,11 @@
 "use client";
 
 import { useReveal } from "@/hooks/useReveal";
+import { useParallax } from "@/hooks/useParallax";
 
 export default function ProcessSection() {
   const { ref: revealRef, isVisible } = useReveal();
+  const parallaxImg = useParallax({ speed: 0.05 });
 
   return (
     <section
@@ -39,8 +41,8 @@ export default function ProcessSection() {
           </p>
         </div>
 
-        {/* Image */}
-        <div className="relative w-full aspect-[4/5] bg-[#e9ddca] overflow-hidden">
+        {/* Image — parallax */}
+        <div ref={parallaxImg} className="relative w-full aspect-[4/5] bg-[#e9ddca] overflow-hidden">
           <img
             src="/images/models/model-2.webp"
             alt="Proceso de diseño MAMS"

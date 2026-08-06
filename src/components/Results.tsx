@@ -1,9 +1,11 @@
 "use client";
 
 import { useReveal } from "@/hooks/useReveal";
+import { useParallax } from "@/hooks/useParallax";
 
 export default function Results() {
   const { ref: revealRef, isVisible } = useReveal();
+  const parallaxImg = useParallax({ speed: 0.05 });
 
   return (
     <section
@@ -13,8 +15,8 @@ export default function Results() {
       style={{ background: "var(--color-cream)" }}
     >
       <div className="max-w-[1320px] mx-auto w-full grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-[clamp(40px,6vw,96px)] items-center">
-        {/* Image */}
-        <div className="relative w-full aspect-[4/5] bg-[#e9ddca] overflow-hidden order-1 md:order-none">
+        {/* Image — parallax */}
+        <div ref={parallaxImg} className="relative w-full aspect-[4/5] bg-[#e9ddca] overflow-hidden order-1 md:order-none">
           <img
             src="/images/models/model-1.webp"
             alt="Resultados MAMS — producto terminado"
