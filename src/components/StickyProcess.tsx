@@ -75,13 +75,13 @@ export default function StickyProcess() {
               entre procesos.
             </p>
 
-            {/* Stage list — clickable */}
+            {/* Stage list — hover to select */}
             <ul className="list-none m-0 p-0 flex flex-col gap-0">
               {STAGES.map((stage, i) => (
                 <li
                   key={stage.num}
-                  onClick={() => setActiveIndex(i)}
-                  className="flex items-center gap-4 py-3 border-b border-[rgba(29,29,27,0.12)] transition-all cursor-pointer"
+                  onMouseEnter={() => setActiveIndex(i)}
+                  className="flex items-center gap-4 py-3 transition-all cursor-pointer"
                   style={{
                     opacity: i === activeIndex ? 1 : 0.4,
                     transitionDuration: "var(--duration-slow)",
@@ -99,18 +99,10 @@ export default function StickyProcess() {
                   >
                     {stage.title}
                   </span>
-                  {/* Line */}
-                  <span
-                    className="flex-1 h-px transition-all"
-                    style={{
-                      background: i === activeIndex ? "var(--color-ink)" : "rgba(29,29,27,0.15)",
-                      transitionDuration: "var(--duration-slow)",
-                    }}
-                  />
                   {/* Dot indicator */}
                   {i === activeIndex && (
                     <span
-                      className="w-[8px] h-[8px] rounded-full bg-mams-coral"
+                      className="w-[8px] h-[8px] rounded-full bg-mams-coral ml-2"
                     />
                   )}
                 </li>
