@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useReveal } from "@/hooks/useReveal";
 import { useParallax } from "@/hooks/useParallax";
 
@@ -13,6 +14,7 @@ const STAGES = [
 export default function StickyProcess() {
   const { ref: revealRef, isVisible } = useReveal();
   const parallaxImg = useParallax({ speed: 0.05 });
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section
@@ -47,7 +49,12 @@ export default function StickyProcess() {
             {STAGES.map((stage, i) => (
               <li
                 key={stage}
-                className="row-shift flex items-baseline gap-6 py-[22px] border-t border-[rgba(29,29,27,0.14)] last:border-b last:border-b-[rgba(29,29,27,0.14)] cursor-default"
+                onMouseEnter={() => setActiveIndex(i)}
+                className="row-shift flex items-baseline gap-6 py-[22px] border-t border-[rgba(29,29,27,0.14)] last:border-b last:border-b-[rgba(29,29,27,0.14)] cursor-pointer transition-opacity"
+                style={{
+                  opacity: i === activeIndex ? 1 : 0.4,
+                  transitionDuration: "var(--duration-slow)",
+                }}
               >
                 <span className="font-mono text-[13px] text-mams-coral w-[2ch]">
                   {String(i + 1).padStart(2, "0")}
@@ -63,7 +70,7 @@ export default function StickyProcess() {
           </ol>
         </div>
 
-        {/* Image — parallax */}
+        {/* Image — cambia el texto según el item activo */}
         <div ref={parallaxImg} className="relative w-full aspect-[4/5] bg-[#e9ddca] overflow-hidden">
           <img
             src="/images/models/model-2.webp"
@@ -72,7 +79,24 @@ export default function StickyProcess() {
             decoding="async"
             className="absolute top-[-9%] left-0 w-full h-[118%] object-cover object-[center_20%]"
           />
-          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(29,29,27,0.55)]">
+          {/* Overlay oscuro */}
+          <div
+            className="absolute inset-0"
+            style={{ background: "rgba(29, 29, 27, 0.35)" }}
+          />
+          {/* Texto de la etapa activa */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+            <span className="font-mono text-[11px] tracking-[0.2em] text-[rgba(243,228,200,0.7)] mb-3 uppercase">
+              Etapa {String(activeIndex + 1).padStart(2, "0")}
+            </span>
+            <span
+              className="uppercase text-[clamp(32px,4.5vw,64px)] leading-[0.9] text-mams-cream"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              {STAGES[activeIndex]}
+            </span>
+          </div>
+          <span className="absolute left-4 bottom-3.5 font-mono text-[11px] tracking-[0.14em] text-[rgba(243,228,200,0.55)] z-10">
             FIG. 02 — SEAMLESS
           </span>
         </div>
