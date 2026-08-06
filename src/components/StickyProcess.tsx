@@ -50,11 +50,11 @@ export default function StickyProcess() {
     <section
       ref={sectionRef}
       aria-labelledby="sticky-title"
-      className="relative h-[280vh] md:h-[380vh]"
+      className="relative h-[200vh] md:h-[280vh] lg:h-[380vh]"
       style={{ background: "var(--color-sand)" }}
     >
-      <div className="sticky top-0 h-screen flex items-center py-[clamp(60px,9vh,120px)] px-[clamp(16px,4vw,48px)]">
-        <div className="max-w-[1320px] mx-auto w-full grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-[clamp(40px,6vw,96px)] items-center">
+      <div className="sticky top-0 h-screen flex items-center py-[clamp(40px,6vh,120px)] px-[clamp(16px,4vw,48px)]">
+        <div className="max-w-[1320px] mx-auto w-full grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-6 lg:gap-[clamp(40px,6vw,96px)] items-center">
           {/* Left side — title + list */}
           <div ref={revealRef}>
             <span className={`font-mono text-sm tracking-[0.1em] text-mams-coral mb-5 block reveal ${isVisible ? "visible" : ""}`}>
@@ -62,13 +62,13 @@ export default function StickyProcess() {
             </span>
             <h2
               id="sticky-title"
-              className="font-semibold uppercase text-[clamp(32px,4.6vw,68px)] leading-[0.98] tracking-[-0.015em] text-mams-ink m-0 mb-6"
+              className="font-semibold uppercase text-[clamp(24px,4.6vw,68px)] leading-[0.98] tracking-[-0.015em] text-mams-ink m-0 mb-4 lg:mb-6"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               De la fibra al producto terminado
             </h2>
             <p
-              className="text-[clamp(15px,1.2vw,17px)] leading-[1.6] text-[rgba(29,29,27,0.65)] m-0 mb-10 max-w-[30ch]"
+              className="text-[clamp(14px,1.2vw,17px)] leading-[1.6] text-[rgba(29,29,27,0.65)] m-0 mb-6 lg:mb-10 max-w-[30ch]"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Un solo aliado en cada etapa. Sin intermediarios, sin costuras
@@ -120,7 +120,7 @@ export default function StickyProcess() {
           </div>
 
           {/* Right side — image with stage name overlay */}
-          <div className="relative w-full h-[clamp(300px,55vh,680px)] lg:h-[clamp(400px,70vh,750px)] overflow-hidden">
+          <div className="relative w-full h-[clamp(200px,35vh,400px)] lg:h-[clamp(400px,70vh,750px)] overflow-hidden">
             {/* Background image */}
             <img
               src="/images/models/model-2.webp"

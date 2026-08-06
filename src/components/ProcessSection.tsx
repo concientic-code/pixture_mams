@@ -22,7 +22,7 @@ export default function ProcessSection() {
           </span>
           <h2
             id="process-title"
-            className="font-semibold uppercase text-[clamp(34px,5vw,74px)] leading-[0.98] tracking-[-0.015em] text-mams-ink m-0 mb-7"
+            className="font-semibold uppercase text-[clamp(28px,5vw,74px)] leading-[0.98] tracking-[-0.015em] text-mams-ink m-0 mb-5 md:mb-7"
             style={{
               fontFamily: "var(--font-heading)",
               textWrap: "balance",

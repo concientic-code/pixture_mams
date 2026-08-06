@@ -74,7 +74,7 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
         {/* Main heading */}
         <h1
           id="hero-title"
-          className="text-[clamp(42px,7.2vw,112px)] leading-[0.94] tracking-[0.01em] text-mams-ink m-0 max-w-[16ch]"
+          className="text-[clamp(36px,7.2vw,112px)] leading-[0.94] tracking-[0.01em] text-mams-ink m-0 max-w-[16ch]"
           style={{
             fontFamily: "var(--font-display)",
             textTransform: "uppercase",

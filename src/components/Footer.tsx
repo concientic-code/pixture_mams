@@ -9,7 +9,7 @@ export default function Footer() {
     >
       <div className="max-w-[1320px] mx-auto">
         {/* Top section */}
-        <div className="flex flex-wrap justify-between gap-12 pb-[clamp(44px,6vw,72px)] border-b border-[rgba(243,228,200,0.22)]">
+        <div className="flex flex-wrap justify-between gap-8 md:gap-12 pb-[clamp(32px,6vw,72px)] border-b border-[rgba(243,228,200,0.22)]">
           {/* Brand */}
           <div className="max-w-[34ch]">
             <Image

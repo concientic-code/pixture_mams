@@ -33,7 +33,7 @@ export default function CinematicBand() {
   return (
     <section
       aria-label="Más de 20 años tejiendo confianza"
-      className="relative w-full h-[clamp(300px,50vh,500px)] overflow-hidden"
+      className="relative w-full h-[clamp(220px,40vh,500px)] md:h-[clamp(300px,50vh,500px)] overflow-hidden"
     >
       {/* Background image with Ken Burns */}
       <div className="absolute inset-0 cinematic-kenburns">
@@ -64,7 +64,7 @@ export default function CinematicBand() {
           Más de 20 años
         </span>
         <span
-          className="uppercase text-[clamp(32px,5.5vw,80px)] leading-[0.95] tracking-[0.02em] text-mams-cream"
+          className="uppercase text-[clamp(26px,5.5vw,80px)] leading-[0.95] tracking-[0.02em] text-mams-cream"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Tejiendo confianza

@@ -22,7 +22,7 @@ export default function CtaSection({ onGetStarted }: CtaSectionProps) {
         </span>
         <h2
           id="cta-title"
-          className="uppercase text-[clamp(38px,6vw,96px)] leading-[0.95] tracking-[0.01em] text-mams-ink m-0 mb-[clamp(36px,5vw,56px)] max-w-[18ch]"
+          className="uppercase text-[clamp(30px,6vw,96px)] leading-[0.95] tracking-[0.01em] text-mams-ink m-0 mb-[clamp(28px,5vw,56px)] max-w-[18ch]"
           style={{
             fontFamily: "var(--font-display)",
             textWrap: "balance",

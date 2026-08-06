@@ -39,7 +39,7 @@ export default function ScrollProgress({ onCtaClick }: ScrollProgressProps) {
     >
       <button
         onClick={onCtaClick}
-        className="w-[210px] bg-mams-blue text-mams-cream border-none cursor-pointer p-[14px_16px_0] block text-left hover:bg-mams-blue-deep transition-colors"
+        className="w-[160px] md:w-[210px] bg-mams-blue text-mams-cream border-none cursor-pointer p-[12px_14px_0] md:p-[14px_16px_0] block text-left hover:bg-mams-blue-deep transition-colors"
         style={{ transitionDuration: "var(--duration-fast)" }}
         aria-label={`Progreso de lectura: ${progress}%. Clic para ir a contacto.`}
       >
@@ -54,7 +54,7 @@ export default function ScrollProgress({ onCtaClick }: ScrollProgressProps) {
             {progress}%
           </span>
         </div>
-        <div className="h-1 w-full bg-[rgba(243,228,200,0.25)]">
+        <div className="h-1 w-full bg-[rgba(243,228,200,0.25)] mb-3">
           <div
             ref={fillRef}
             className="h-full bg-mams-coral transition-[width]"

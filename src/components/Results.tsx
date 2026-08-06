@@ -36,7 +36,7 @@ export default function Results() {
           </span>
           <h2
             id="results-title"
-            className="font-semibold uppercase text-[clamp(30px,4.4vw,64px)] leading-[1.05] tracking-[-0.015em] text-mams-ink"
+            className="font-semibold uppercase text-[clamp(24px,4.4vw,64px)] leading-[1.05] tracking-[-0.015em] text-mams-ink"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             <span className={`line-reveal ${isVisible ? "visible" : ""}`}>
