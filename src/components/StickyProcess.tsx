@@ -54,7 +54,7 @@ export default function StickyProcess() {
       style={{ background: "var(--color-sand)" }}
     >
       <div className="sticky top-0 h-screen flex items-center py-[clamp(60px,9vh,120px)] px-[clamp(16px,4vw,48px)]">
-        <div className="max-w-[1320px] mx-auto w-full grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-8 md:gap-[clamp(40px,6vw,96px)] items-center">
+        <div className="max-w-[1320px] mx-auto w-full grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-[clamp(40px,6vw,96px)] items-center">
           {/* Text side */}
           <div ref={revealRef}>
             <span className={`font-mono text-sm tracking-[0.1em] text-mams-coral mb-7 block reveal ${isVisible ? "visible" : ""}`}>
@@ -68,9 +68,7 @@ export default function StickyProcess() {
                 textWrap: "balance",
               }}
             >
-              <span className={`line-reveal ${isVisible ? "visible" : ""}`}>
-                <span>De la fibra al producto terminado</span>
-              </span>
+              De la fibra al producto terminado
             </h2>
             <p
               className="text-[clamp(16px,1.25vw,18px)] leading-[1.65] text-[rgba(29,29,27,0.72)] m-0 mb-8 max-w-[30ch]"
@@ -90,7 +88,7 @@ export default function StickyProcess() {
 
           {/* Visual stage carousel */}
           <div
-            className="relative w-full h-[clamp(240px,40vh,680px)] md:h-[clamp(360px,64vh,680px)] overflow-hidden border border-[rgba(29,29,27,0.08)]"
+            className="relative w-full h-[clamp(240px,40vh,680px)] lg:h-[clamp(360px,64vh,680px)] overflow-hidden border border-[rgba(29,29,27,0.08)]"
             style={{ background: "#ded0b6" }}
             aria-roledescription="carousel"
             aria-label="Etapas del proceso de manufactura"
