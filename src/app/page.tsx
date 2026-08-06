@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useCallback } from "react";
+import { useRef, useCallback, useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProcessSection from "@/components/ProcessSection";
@@ -11,10 +11,12 @@ import SocialProof from "@/components/SocialProof";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
+import Preloader from "@/components/Preloader";
 
 export default function Home() {
   const ctaRef = useRef<HTMLElement>(null);
   const sec1Ref = useRef<HTMLElement>(null);
+  const [loaded, setLoaded] = useState(false);
 
   const scrollTo = useCallback((ref: React.RefObject<HTMLElement | null>) => {
     if (!ref.current) return;
@@ -23,7 +25,16 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative w-full overflow-x-hidden" style={{ background: "var(--color-cream)" }}>
+    <>
+      <Preloader onComplete={() => setLoaded(true)} />
+      <div
+        className="relative w-full overflow-x-hidden"
+        style={{
+          background: "var(--color-cream)",
+          overflow: loaded ? undefined : "hidden",
+          height: loaded ? undefined : "100vh",
+        }}
+      >
       <Header onCtaClick={() => scrollTo(ctaRef)} />
 
       <main id="main-content">
@@ -48,6 +59,7 @@ export default function Home() {
 
       <Footer />
       <ScrollProgress onCtaClick={() => scrollTo(ctaRef)} />
-    </div>
+      </div>
+    </>
   );
 }
