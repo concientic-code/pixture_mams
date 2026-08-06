@@ -23,10 +23,10 @@ export default function SocialProof() {
         </p>
 
         <div className="flex flex-wrap justify-center items-center gap-[clamp(28px,6vw,72px)] grayscale opacity-55">
-          {BRANDS.map((brand) => (
+          {BRANDS.map((brand, i) => (
             <span
               key={brand.name}
-              className={`font-semibold uppercase text-mams-ink ${brand.style}`}
+              className={`font-semibold uppercase text-mams-ink reveal visible stagger-${Math.min(i + 1, 5)} ${brand.style}`}
               style={{ fontFamily: "var(--font-heading)" }}
             >
               {brand.name}

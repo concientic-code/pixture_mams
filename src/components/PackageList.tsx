@@ -70,7 +70,7 @@ export default function PackageList() {
             {SERVICES.map((service, i) => (
               <li
                 key={service}
-                className="flex items-baseline gap-6 py-[22px] border-t border-[rgba(29,29,27,0.14)] last:border-b last:border-b-[rgba(29,29,27,0.14)]"
+                className={`flex items-baseline gap-6 py-[22px] border-t border-[rgba(29,29,27,0.14)] last:border-b last:border-b-[rgba(29,29,27,0.14)] reveal visible stagger-${i + 1}`}
               >
                 <span className="font-mono text-[13px] text-mams-coral w-[2ch]">
                   {String(i + 1).padStart(2, "0")}

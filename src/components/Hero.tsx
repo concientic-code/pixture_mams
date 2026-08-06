@@ -77,13 +77,13 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
       <div className="max-w-[1320px] mx-auto px-[clamp(20px,4vw,48px)] py-[clamp(24px,3vw,44px)] pb-[clamp(28px,3.5vw,48px)]">
         {/* Tagline */}
         <p
-          className="uppercase tracking-[0.28em] text-xs text-mams-blue mb-[clamp(18px,2.4vw,30px)]"
-          style={{ fontFamily: "var(--font-heading)" }}
+          className="reveal visible uppercase tracking-[0.28em] text-xs text-mams-blue mb-[clamp(18px,2.4vw,30px)]"
+          style={{ fontFamily: "var(--font-heading)", animationDelay: "0.1s" }}
         >
           Aliado textil · Guarne, Colombia
         </p>
 
-        {/* Main heading */}
+        {/* Main heading — animated word reveal */}
         <h1
           id="hero-title"
           className="text-[clamp(42px,7.2vw,112px)] leading-[0.94] tracking-[0.01em] text-mams-ink m-0 max-w-[16ch]"
@@ -93,7 +93,9 @@ export default function Hero({ onExplore, onGetStarted }: HeroProps) {
             textWrap: "balance",
           }}
         >
-          Confeccionamos tus ideas
+          <span className="hero-word"><span>Confeccionamos</span></span>{" "}
+          <span className="hero-word"><span>tus</span></span>{" "}
+          <span className="hero-word"><span>ideas</span></span>
         </h1>
 
         {/* Subtitle + CTA */}

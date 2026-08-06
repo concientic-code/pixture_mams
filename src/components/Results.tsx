@@ -64,13 +64,13 @@ export default function Results() {
             className="font-semibold uppercase text-[clamp(30px,4.4vw,64px)] leading-[1.05] tracking-[-0.015em] text-mams-ink"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            <span className="block">
+            <span className="block reveal visible stagger-1">
               Más rápido<span className="text-mams-coral">.</span>
             </span>
-            <span className="block">
+            <span className="block reveal visible stagger-2">
               A mayor escala<span className="text-mams-coral">.</span>
             </span>
-            <span className="block">
+            <span className="block reveal visible stagger-3">
               Con más control<span className="text-mams-coral">.</span>
             </span>
           </h2>
